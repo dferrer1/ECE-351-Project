@@ -1,4 +1,4 @@
-Running: xsim.dir/squareDDStb_behav/xsimk.exe -simmode gui -wdb squareDDStb_behav.wdb -simrunnum 0 -socket 65158
+Running: xsim.dir/squareDDStb_behav/xsimk.exe -simmode gui -wdb squareDDStb_behav.wdb -simrunnum 0 -socket 61430
 Design successfully loaded
-Design Loading Memory Usage: 8012 KB (Peak: 8012 KB)
+Design Loading Memory Usage: 7996 KB (Peak: 7996 KB)
 Design Loading CPU Usage: 15 ms

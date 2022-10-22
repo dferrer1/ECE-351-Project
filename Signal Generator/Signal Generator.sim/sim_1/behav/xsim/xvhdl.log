@@ -1,4 +1,2 @@
 INFO: [VRFC 10-163] Analyzing VHDL file "D:/.GitHub/ECE-351-Project/Signal Generator/Signal Generator.srcs/sources_1/new/testDDS.vhd" into library xil_defaultlib
 INFO: [VRFC 10-3107] analyzing entity 'testDDS'
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/.GitHub/ECE-351-Project/Signal Generator/Signal Generator.srcs/sim_1/new/squareDDStb.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'squareDDStb'

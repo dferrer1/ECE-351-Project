@@ -33,19 +33,19 @@ use IEEE.numeric_std.all;
 --use UNISIM.VComponents.all;
 
 entity testDDS is
-    Port ( clk : in std_logic;
-           sigOut : out std_logic_vector(9 downto 0));
+    Port (  clk : in std_logic;
+            sigOut : out std_logic_vector(9 downto 0));
 end testDDS;
 
 architecture Behavioral of testDDS is
-    signal cnt: std_logic_vector(15 downto 0);
+    signal cnt: std_logic_vector(15 downto 0):= "0000000000000000";
 begin
     process(clk) -- square wave operation
     begin
         if rising_edge(clk) then
             cnt <= std_logic_vector(unsigned(cnt) + "1");
         end if;
-        if cnt(7) = '1' then
+        if cnt(4) = '1' then
             sigOut <= "1111111111";
         else
             sigOut <= "0000000000";

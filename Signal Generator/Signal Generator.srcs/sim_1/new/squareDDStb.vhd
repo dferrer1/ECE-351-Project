@@ -40,15 +40,15 @@ architecture Behavioral of squareDDStb is
         Port ( clk : in std_logic;
                sigOut : out std_logic_vector(9 downto 0));
     end component;
-    signal clk: std_logic;
-    signal sigOut: std_logic_vector(9 downto 0);
+    signal tbclk: std_logic;
+    signal tbsigOut: std_logic_vector(9 downto 0);
 begin
-    uut: testDDS port map(clk=>clk, sigOut => sigOut);
+    uut: testDDS port map(clk=>tbclk, sigOut => tbsigOut);
     
     CLK_100MHZ: process --create CLK stimulus
                 begin
-                clk <= '0'; wait for 5 ns; --what period and frequency?
-                clk <= '1'; wait for 5 ns;
+                tbclk <= '0'; wait for 5 ns; --what period and frequency?
+                tbclk <= '1'; wait for 5 ns;
                 end process;
 
 end Behavioral;
