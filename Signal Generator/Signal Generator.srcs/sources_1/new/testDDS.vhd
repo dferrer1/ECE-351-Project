@@ -39,7 +39,7 @@ end testDDS;
 
 architecture Behavioral of testDDS is
     signal cnt: std_logic_vector(15 downto 0):= "0000000000000000";
-    signal sigInt: integer;
+    signal sigInt: integer := 0;
 begin
     process(clk) -- square wave operation
     begin
@@ -57,17 +57,17 @@ begin
 --        end if;
         
         -- sawtooth wave
-         sigOut <= cnt(9 downto 0);
+--        sigOut <= cnt(9 downto 0);
 
         -- triangle wave
         -- change the frequency by changing the bit in cnt to check and the bit range to convert to integer
---        if cnt(4) = '0' then
---            sigInt <= to_integer(signed(cnt(4 downto 0)));
---            sigOut <= std_logic_vector(to_signed(sigInt, sigOut'length));
---        else
---            sigInt <= to_integer(signed(NOT(cnt(4 downto 0))));
---            sigOut <= std_logic_vector(to_signed(sigInt, sigOut'length));
---        end if;
+        if cnt(4) = '0' then
+            sigInt <= to_integer(signed(cnt(4 downto 0)));
+            sigOut <= std_logic_vector(to_signed(sigInt, sigOut'length));
+        else
+            sigInt <= to_integer(signed(NOT(cnt(4 downto 0))));
+            sigOut <= std_logic_vector(to_signed(sigInt, sigOut'length));
+        end if;
     end process;
         
 end Behavioral;

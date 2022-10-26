@@ -45,19 +45,19 @@
 -- PART OF THIS FILE AT ALL TIMES.
 -- 
 -- DO NOT MODIFY THIS FILE.
-
 -- IP VLNV: xilinx.com:ip:dsp_macro:1.0
 -- IP Revision: 2
-
 -- The following code must appear in the VHDL architecture header.
 
 ------------- Begin Cut here for COMPONENT Declaration ------ COMP_TAG
 COMPONENT dsp_macro_0
   PORT (
     CLK : IN STD_LOGIC;
-    C : IN STD_LOGIC_VECTOR(47 DOWNTO 0);
+    PCIN : IN STD_LOGIC_VECTOR(47 DOWNTO 0);
+    C : IN STD_LOGIC_VECTOR(10 DOWNTO 0);
     CARRYOUT : OUT STD_LOGIC;
-    P : OUT STD_LOGIC_VECTOR(47 DOWNTO 0)
+    PCOUT : OUT STD_LOGIC_VECTOR(47 DOWNTO 0);
+    P : OUT STD_LOGIC_VECTOR(47 DOWNTO 0) 
   );
 END COMPONENT;
 -- COMP_TAG_END ------ End COMPONENT Declaration ------------
@@ -69,8 +69,10 @@ END COMPONENT;
 your_instance_name : dsp_macro_0
   PORT MAP (
     CLK => CLK,
+    PCIN => PCIN,
     C => C,
     CARRYOUT => CARRYOUT,
+    PCOUT => PCOUT,
     P => P
   );
 -- INST_TAG_END ------ End INSTANTIATION Template ---------
@@ -78,4 +80,6 @@ your_instance_name : dsp_macro_0
 -- You must compile the wrapper file dsp_macro_0.vhd when simulating
 -- the core, dsp_macro_0. When compiling the wrapper file, be sure to
 -- reference the VHDL simulation library.
+
+
 

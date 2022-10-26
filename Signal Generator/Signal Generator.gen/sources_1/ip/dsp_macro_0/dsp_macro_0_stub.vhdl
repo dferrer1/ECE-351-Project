@@ -1,7 +1,7 @@
--- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+-- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2021.1 (win64) Build 3247384 Thu Jun 10 19:36:33 MDT 2021
--- Date        : Thu Oct 20 00:12:41 2022
+-- Tool Version: Vivado v.2022.1 (win64) Build 3526262 Mon Apr 18 15:48:16 MDT 2022
+-- Date        : Tue Oct 25 20:15:39 2022
 -- Host        : DF3 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub {d:/.GitHub/ECE-351-Project/Signal Generator/Signal
 --               Generator.gen/sources_1/ip/dsp_macro_0/dsp_macro_0_stub.vhdl}
@@ -15,8 +15,10 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity dsp_macro_0 is
   Port ( 
     CLK : in STD_LOGIC;
-    C : in STD_LOGIC_VECTOR ( 47 downto 0 );
+    PCIN : in STD_LOGIC_VECTOR ( 47 downto 0 );
+    C : in STD_LOGIC_VECTOR ( 10 downto 0 );
     CARRYOUT : out STD_LOGIC;
+    PCOUT : out STD_LOGIC_VECTOR ( 47 downto 0 );
     P : out STD_LOGIC_VECTOR ( 47 downto 0 )
   );
 
@@ -26,8 +28,8 @@ architecture stub of dsp_macro_0 is
 attribute syn_black_box : boolean;
 attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
-attribute black_box_pad_pin of stub : architecture is "CLK,C[47:0],CARRYOUT,P[47:0]";
+attribute black_box_pad_pin of stub : architecture is "CLK,PCIN[47:0],C[10:0],CARRYOUT,PCOUT[47:0],P[47:0]";
 attribute x_core_info : string;
-attribute x_core_info of stub : architecture is "dsp_macro_v1_0_2,Vivado 2021.1";
+attribute x_core_info of stub : architecture is "dsp_macro_v1_0_2,Vivado 2022.1";
 begin
 end;

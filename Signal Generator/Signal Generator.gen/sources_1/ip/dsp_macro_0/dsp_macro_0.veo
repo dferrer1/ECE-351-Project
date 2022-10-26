@@ -56,8 +56,10 @@
 //----------- Begin Cut here for INSTANTIATION Template ---// INST_TAG
 dsp_macro_0 your_instance_name (
   .CLK(CLK),            // input wire CLK
-  .C(C),                // input wire [47 : 0] C
+  .PCIN(PCIN),          // input wire [47 : 0] PCIN
+  .C(C),                // input wire [10 : 0] C
   .CARRYOUT(CARRYOUT),  // output wire CARRYOUT
+  .PCOUT(PCOUT),        // output wire [47 : 0] PCOUT
   .P(P)                // output wire [47 : 0] P
 );
 // INST_TAG_END ------ End INSTANTIATION Template ---------

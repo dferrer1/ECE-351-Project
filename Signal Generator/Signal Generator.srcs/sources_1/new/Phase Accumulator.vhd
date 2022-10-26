@@ -33,34 +33,40 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity phase_accumulator is
     Port ( phase_clk: in std_logic;
-         offset: in std_logic_vector(8 downto 0); -- temp size, size should be log2(max offset size)
-         numNodes: in std_logic_vector(47 downto 0); -- temp size, size should be log2(max number of nodes)
-         pulse: out std_logic_vector(47 downto 0)
+         offset: in std_logic_vector(10 downto 0); -- temp size, size should be log2(max offset size)
+         numNodes: in std_logic_vector(10 downto 0); -- temp size, size should be log2(max number of nodes)
+         pulse: out std_logic_vector(10 downto 0)
         );
 end phase_accumulator;
 
 
 architecture Behavioral of phase_accumulator is
-    -- This is dsp component uses a macro where it calculates Y = C + P
+    -- This is dsp component uses a macro where it calculates P = C + P
     -- I am intending to use this to keep track of the position of the phase wheel
     component dsp_macro_0 IS
         PORT (
             CLK : IN STD_LOGIC;
-            C : IN STD_LOGIC_VECTOR(47 DOWNTO 0);
+            PCIN : IN STD_LOGIC_VECTOR(47 DOWNTO 0);
+            C : IN STD_LOGIC_VECTOR(10 DOWNTO 0);
             CARRYOUT : OUT STD_LOGIC;
+            PCOUT : OUT STD_LOGIC_VECTOR(47 DOWNTO 0);
             P : OUT STD_LOGIC_VECTOR(47 DOWNTO 0)
         );
     END component;
     signal wheel_pos: std_logic_vector(47 downto 0);
     signal overflow: std_logic;
-    signal out_pulse: std_logic_vector(47 downto 0);
+    signal out_pulse: std_logic_vector(10 downto 0);
 begin
-    dsp_inst: dsp_macro_0 port map(CLK => phase_clk, C => wheel_pos, CARRYOUT => overflow, P => out_pulse);
-process(phase_clk)
-begin
-    if (overflow = '1') then
-        -- track full cycles
-    end if;
-    pulse <= out_pulse;
-end process;
+    dsp_inst: dsp_macro_0 port map(CLK => phase_clk, PCIN => wheel_pos, C => offset, CARRYOUT => overflow, P => out_pulse);
+
+    process(phase_clk)
+    begin
+        if rising_edge(phase_clk) then
+            if (overflow = '1') then
+            -- track full cycles
+            end if;
+        end if;
+        pulse <= out_pulse;
+        --pulse <= wheel_pos;
+    end process;
 end Behavioral;

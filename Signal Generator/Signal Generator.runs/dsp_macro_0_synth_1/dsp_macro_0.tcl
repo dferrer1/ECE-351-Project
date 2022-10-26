@@ -104,14 +104,14 @@ set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
 OPTRACE "Configure IP Cache" START { }
 
-set cached_ip [config_ip_cache -export -no_bom  -dir {D:/.GitHub/ECE-351-Project/Signal Generator/Signal Generator.runs/dsp_macro_0_synth_1} -new_name dsp_macro_0 -ip [get_ips dsp_macro_0]]
+set cacheID [config_ip_cache -export -no_bom  -dir {D:/.GitHub/ECE-351-Project/Signal Generator/Signal Generator.runs/dsp_macro_0_synth_1} -new_name dsp_macro_0 -ip [get_ips dsp_macro_0]]
 
 OPTRACE "Configure IP Cache" END { }
-if { $cached_ip eq {} } {
+if { $cacheID == "" } {
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
-synth_design -top dsp_macro_0 -part xc7a35tcpg236-1 -mode out_of_context
+synth_design -top dsp_macro_0 -part xc7a35tcpg236-1 -incremental_mode off -mode out_of_context
 OPTRACE "synth_design" END { }
 OPTRACE "Write IP Cache" START { }
 
@@ -224,7 +224,7 @@ if { [catch {
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
-}; # end if cached_ip 
+}; # end if cacheID 
 
 if {[file isdir {D:/.GitHub/ECE-351-Project/Signal Generator/Signal Generator.ip_user_files/ip/dsp_macro_0}]} {
   catch { 
