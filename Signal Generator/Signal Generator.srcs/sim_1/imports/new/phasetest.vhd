@@ -49,8 +49,10 @@ architecture Behavioral of phase_test is
     );
     end component;
     constant half_period : time := 5 ns;
+    signal test_offset : std_logic_vector(18 downto 0) := "1111111000010111110";
 begin
-    uut: Phase_accumulator_for_diego_ref port map(clk => clk, offset => (18=>'1', 17=>'1', 16=>'1',others=>'0'), LUT_address => Q, large_out => large_out, init => init);
+    --uut: Phase_accumulator_for_diego_ref port map(clk => clk, offset => (18=>'1', 17=>'1', 16=>'1',others=>'0'), LUT_address => Q, large_out => large_out, init => init);
+    uut: Phase_accumulator_for_diego_ref port map(clk => clk, offset => '0' & test_offset, LUT_address => Q, large_out => large_out, init => init);
     clk <= not clk after half_period ;
     init <= '1', '0' after 10ns;
 end Behavioral;
