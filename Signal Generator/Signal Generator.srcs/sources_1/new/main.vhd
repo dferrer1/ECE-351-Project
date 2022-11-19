@@ -99,6 +99,5 @@ DAC_out <= LUT_out (11 downto 0);
 end if;
 
 end process;
-mag_placeholder <= std_logic_vector(shift_right (unsigned(mag_placeholder),4));
-DAC_out <= mag_placeholder(11 downto 0);
+
 end Behavioral;

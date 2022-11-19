@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="13,564,157.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="13,564,250.601 ns"></ZoomEndTime>
-      <Cursor1Time time="13,564,235.000 ns"></Cursor1Time>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="117.507 ns"></ZoomEndTime>
+      <Cursor1Time time="0.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="266"></NameColumnWidth>
-      <ValueColumnWidth column_width="130"></ValueColumnWidth>
+      <ValueColumnWidth column_width="126"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="3" />
+   <WVObjectSize size="5" />
    <wvobject fp_name="/main_sim/DAC_out" type="array">
       <obj_property name="ElementShortName">DAC_out[11:0]</obj_property>
       <obj_property name="ObjectShortName">DAC_out[11:0]</obj_property>
@@ -31,5 +31,13 @@
    <wvobject fp_name="/main_sim/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/main_sim/LUT_in_addr" type="array">
+      <obj_property name="ElementShortName">LUT_in_addr[10:0]</obj_property>
+      <obj_property name="ObjectShortName">LUT_in_addr[10:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/main_sim/LUT_out_test" type="array">
+      <obj_property name="ElementShortName">LUT_out_test[11:0]</obj_property>
+      <obj_property name="ObjectShortName">LUT_out_test[11:0]</obj_property>
    </wvobject>
 </wave_config>
