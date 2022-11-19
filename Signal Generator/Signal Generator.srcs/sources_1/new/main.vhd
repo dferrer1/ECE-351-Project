@@ -32,7 +32,7 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity main is
-    Port ( wave_type : in std_logic_vector (2 downto 0);
+    Port ( wave_type : in std_logic_vector (1 downto 0);
            amplitude : in std_logic_vector (1 downto 0);
            frequency_up: in std_logic;
            frequency_down : in std_logic;
@@ -68,11 +68,21 @@ signal LUT_out : std_logic_vector (15 downto 0);
 signal offset : std_logic_vector (19 downto 0) := "01111111000010111110";
 --signal test_large_out : std_logic_vector (19 downto 0);
 signal numerator : std_logic_vector (3 downto 0);
-signal mag_placeholder : std_logic_vector (40 downto 0);
+signal mag_placeholder : std_logic_vector (39 downto 0) := X"0000000000";
 begin
 phase_accum : Phase_accumulator_for_diego_ref port map(clk => clk, init => init,offset => offset, LUT_address => LUT_address , large_out => test_large_out);
 --Here is where arithmetic to select which waveform is needed 
-LUT_in <= "00" & LUT_address;
+process(clk) begin
+    if (wave_type = "00") then
+        LUT_in <= "00" & LUT_address;
+    end if;
+    if (wave_type = "10") then
+        LUT_in <= "10" & LUT_address ;
+    end if;
+    if(wave_type = "01") then
+        LUT_in <= "01" & LUT_address ;
+        end if;
+end process;
 LUT_in_addr <= LUT_in ;
 LUT : blk_mem_gen_0 port map(clka => clk, wea => "0", addra => LUT_in , dina => "0000000000000000",douta => LUT_out);
 LUT_out_test <= LUT_out(11 downto 0); 
@@ -81,17 +91,17 @@ LUT_out_test <= LUT_out(11 downto 0);
 --two switches - 00 is 1/4 amplitude, 01 is half, 10 is 3/4, 11 is full
 process (LUT_out) begin
 if(amplitude = "00") then
-mag_placeholder <= std_logic_vector (shift_left (unsigned(LUT_out),2));
+mag_placeholder (15 downto 0) <= std_logic_vector (shift_right (unsigned(LUT_out),2));
 DAC_out <= mag_placeholder(11 downto 0);    
 end if;
 
 if (amplitude = "01") then
-mag_placeholder <=  std_logic_vector (shift_left (unsigned(LUT_out),1));
+mag_placeholder(15 downto 0) <=  std_logic_vector (shift_right (unsigned(LUT_out),1));
 DAC_out <= mag_placeholder(11 downto 0);
 end if;
 
 if (amplitude = "10") then
-mag_placeholder <=  std_logic_vector (shift_left(unsigned(LUT_out),2) + shift_left(unsigned(LUT_out),1));
+mag_placeholder (15 downto 0) <=  std_logic_vector (shift_right(unsigned(LUT_out),2) + shift_right(unsigned(LUT_out),1));
 DAC_out <= mag_placeholder(11 downto 0);
 end if;
 if(amplitude = "11") then

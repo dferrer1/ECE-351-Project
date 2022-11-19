@@ -37,7 +37,7 @@ end main_sim;
 
 architecture Behavioral of main_sim is
 component main is port(
-           wave_type : in std_logic_vector (2 downto 0);
+           wave_type : in std_logic_vector (1 downto 0);
            amplitude : in std_logic_vector (1 downto 0);
            frequency_up: in std_logic;
            frequency_down : in std_logic;
@@ -49,8 +49,8 @@ component main is port(
            test_large_out : out std_logic_vector (19 downto 0)
            );
 end component;
-signal wavetype : std_logic_vector (2 downto 0) := "000";
-signal amplitude : std_logic_vector (1 downto 0) := "11";
+signal wavetype : std_logic_vector (1 downto 0) := "01";
+signal amplitude : std_logic_vector (1 downto 0) := "10";
 signal frequency_up : std_logic := '0';
 signal frequency_down : std_logic := '0';
 signal clk : std_logic := '0';
