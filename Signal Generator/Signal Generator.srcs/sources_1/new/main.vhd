@@ -33,11 +33,16 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity main is
     Port ( wave_type : in std_logic_vector (2 downto 0);
-           amplitude : in std_logic_vector (2 downto 0);
+           amplitude : in std_logic_vector (1 downto 0);
            frequency_up: in std_logic;
            frequency_down : in std_logic;
            clk : in std_logic ;
-           DAC_out : out std_logic_vector (11 downto 0));
+           init : in std_logic ;
+           LUT_in_addr : out std_logic_vector (10 downto 0);
+           LUT_out_test : out std_logic_vector (11 downto 0);
+           DAC_out : out std_logic_vector (11 downto 0);
+           test_large_out : out std_logic_vector (19 downto 0)
+           );
 end main;
 
 architecture Behavioral of main is
@@ -60,22 +65,40 @@ end component;
 signal LUT_address : std_logic_vector (8 downto 0);
 signal LUT_in : std_logic_vector (10 downto 0);
 signal LUT_out : std_logic_vector (15 downto 0);
-signal offset : std_logic_vector (19 downto 0);
-signal init : std_logic ;
-signal test_large_out : std_logic_vector (19 downto 0);
+signal offset : std_logic_vector (19 downto 0) := "01111111000010111110";
+--signal test_large_out : std_logic_vector (19 downto 0);
 signal numerator : std_logic_vector (3 downto 0);
 signal mag_placeholder : std_logic_vector (40 downto 0);
 begin
 phase_accum : Phase_accumulator_for_diego_ref port map(clk => clk, init => init,offset => offset, LUT_address => LUT_address , large_out => test_large_out);
-LUT : blk_mem_gen_0 port map(clka => clk, wea => "0", addra => LUT_in , dina => "0",douta => LUT_out);
-
+--Here is where arithmetic to select which waveform is needed 
+LUT_in <= "00" & LUT_address;
+LUT_in_addr <= LUT_in ;
+LUT : blk_mem_gen_0 port map(clka => clk, wea => "0", addra => LUT_in , dina => "0000000000000000",douta => LUT_out);
+LUT_out_test <= LUT_out(11 downto 0); 
 --try and do some arithetic to figure out the amplitude.
---This always needs to be a power of 2 so we are going to say the lowest value is hardwired to 0
---Use three switches to be bits 3-1.  
---the offset switches should be able to be directly what you shift.
---proof of concept : desired amplitude = 1/2.  Numerator of 8, denominator of 16.
--- So, to multiply by 8, shift to the left by 3
--- Then, to divide back out by the denominator, shift it back right by 4. 
-mag_placeholder <= std_logic_vector(shift_left(unsigned(LUT_out),to_integer(unsigned(amplitude))));
-DAC_out <= std_logic_vector (shift_right (unsigned(mag_placeholder),4));
+--This always needs to be a power of 2
+--two switches - 00 is 1/4 amplitude, 01 is half, 10 is 3/4, 11 is full
+process (LUT_out) begin
+if(amplitude = "00") then
+mag_placeholder <= std_logic_vector (shift_left (unsigned(LUT_out),2));
+DAC_out <= mag_placeholder(11 downto 0);    
+end if;
+
+if (amplitude = "01") then
+mag_placeholder <=  std_logic_vector (shift_left (unsigned(LUT_out),1));
+DAC_out <= mag_placeholder(11 downto 0);
+end if;
+
+if (amplitude = "10") then
+mag_placeholder <=  std_logic_vector (shift_left(unsigned(LUT_out),2) + shift_left(unsigned(LUT_out),1));
+DAC_out <= mag_placeholder(11 downto 0);
+end if;
+if(amplitude = "11") then
+DAC_out <= LUT_out (11 downto 0);
+end if;
+
+end process;
+mag_placeholder <= std_logic_vector(shift_right (unsigned(mag_placeholder),4));
+DAC_out <= mag_placeholder(11 downto 0);
 end Behavioral;

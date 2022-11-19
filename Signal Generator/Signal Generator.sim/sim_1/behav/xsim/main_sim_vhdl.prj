@@ -2,8 +2,9 @@
 vhdl xil_defaultlib  \
 "../../../../Signal Generator.gen/sources_1/ip/c_accum_1/sim/c_accum_1.vhd" \
 "../../../../Signal Generator.gen/sources_1/ip/c_accum_0/sim/c_accum_0.vhd" \
+"../../../../Signal Generator.srcs/sources_1/new/main.vhd" \
 "../../../../Signal Generator.srcs/sources_1/new/phase_for_Diego.vhd" \
-"../../../../Signal Generator.srcs/sim_1/imports/new/phasetest.vhd" \
+"../../../../Signal Generator.srcs/sim_1/new/main_sim.vhd" \
 
 # Do not sort compile order
 nosort
