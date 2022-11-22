@@ -39,6 +39,7 @@ entity main is
            freq: in std_logic;
            clk : in std_logic ;
            init : in std_logic ;
+           phase_offset : in std_logic_vector (1 downto 0);
            LUT_in_addr : out std_logic_vector (10 downto 0);
            LUT_out_test : out std_logic_vector (11 downto 0);
            DAC_out : out std_logic_vector (11 downto 0);
@@ -67,13 +68,14 @@ signal LUT_address : std_logic_vector (8 downto 0);
 signal LUT_in : std_logic_vector (10 downto 0);
 signal LUT_out : std_logic_vector (15 downto 0);
 signal offset : std_logic_vector (19 downto 0) := "01111111000010111110";
+signal offset_LUT : integer := 0;
 --signal test_large_out : std_logic_vector (19 downto 0);
 signal numerator : std_logic_vector (3 downto 0);
 signal mag_placeholder : std_logic_vector (39 downto 0) := X"0000000000";
 begin
 phase_accum : Phase_accumulator_for_diego_ref port map(clk => clk, init => init,offset => offset, LUT_address => LUT_address , large_out => test_large_out);
 -- select wave frequency
-process begin
+process(freq) begin
     if (freq = '0') then
         offset <= "01111111000010111110"; -- Set to 50 Hz
     else
@@ -84,13 +86,16 @@ end process;
 --Here is where arithmetic to select which waveform is needed 
 process(clk) begin
     if (wave_type = "00") then
-        LUT_in <= "00" & LUT_address;
+        offset_LUT <= to_integer(unsigned(LUT_address)) + (170 * to_integer(unsigned(phase_offset)));
+        LUT_in <= std_logic_vector("00" & to_unsigned(offset_LUT,9));
     end if;
     if (wave_type = "10") then
-        LUT_in <= "10" & LUT_address ;
+        offset_LUT <= to_integer(unsigned(LUT_address)) + (170 * to_integer(unsigned(phase_offset)));
+        LUT_in <= std_logic_vector("10" & to_unsigned(offset_LUT,9));
     end if;
     if(wave_type = "01") then
-        LUT_in <= "01" & LUT_address ;
+        offset_LUT <= to_integer(unsigned(LUT_address)) + (170 * to_integer(unsigned(phase_offset)));
+        LUT_in <= std_logic_vector("01" & to_unsigned(offset_LUT,9));
         end if;
 end process;
 LUT_in_addr <= LUT_in ;

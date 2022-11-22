@@ -39,8 +39,8 @@ architecture Behavioral of main_sim is
 component main is port(
            wave_type : in std_logic_vector (1 downto 0);
            amplitude : in std_logic_vector (1 downto 0);
-           frequency_up: in std_logic;
-           frequency_down : in std_logic;
+           freq : in std_logic ;
+           phase_offset : in std_logic_vector (1 downto 0);
            clk : in std_logic ;
            init : in std_logic ;
            LUT_in_addr : out std_logic_vector (10 downto 0);
@@ -50,19 +50,19 @@ component main is port(
            );
 end component;
 signal wavetype : std_logic_vector (1 downto 0) := "01";
-signal amplitude : std_logic_vector (1 downto 0) := "10";
-signal frequency_up : std_logic := '0';
-signal frequency_down : std_logic := '0';
+signal amplitude : std_logic_vector (1 downto 0) := "11";
+signal freq : std_logic := '0';
 signal clk : std_logic := '0';
 signal DAC_out : std_logic_vector (11 downto 0);
 signal init : std_logic := '0';
+signal phase_offset : std_logic_vector(1 downto 0) := "10";
 signal test_large_out : std_logic_vector (19 downto 0);
 signal LUT_in_addr : std_logic_vector (10 downto 0);
 signal LUT_out_test : std_logic_vector (11 downto 0);
 constant half_period : time := 5 ns;
 begin
 
-    uut : main port map(wave_type => wavetype , amplitude => amplitude , frequency_up => frequency_up ,frequency_down => frequency_down,
+    uut : main port map(wave_type => wavetype , amplitude => amplitude , freq => freq, phase_offset => phase_offset,
      clk => clk , init => init, LUT_in_addr => LUT_in_addr ,  LUT_out_test => LUT_out_test , DAC_out => DAC_out, test_large_out => test_large_out);
     clk <= not clk after half_period ;
     init <= '1', '0' after 10ns;
