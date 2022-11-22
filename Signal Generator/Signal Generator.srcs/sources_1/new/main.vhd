@@ -34,8 +34,9 @@ use IEEE.NUMERIC_STD.ALL;
 entity main is
     Port ( wave_type : in std_logic_vector (1 downto 0);
            amplitude : in std_logic_vector (1 downto 0);
-           frequency_up: in std_logic;
-           frequency_down : in std_logic;
+           --frequency_up: in std_logic;
+           --frequency_down : in std_logic;
+           freq: in std_logic;
            clk : in std_logic ;
            init : in std_logic ;
            LUT_in_addr : out std_logic_vector (10 downto 0);
@@ -71,6 +72,15 @@ signal numerator : std_logic_vector (3 downto 0);
 signal mag_placeholder : std_logic_vector (39 downto 0) := X"0000000000";
 begin
 phase_accum : Phase_accumulator_for_diego_ref port map(clk => clk, init => init,offset => offset, LUT_address => LUT_address , large_out => test_large_out);
+-- select wave frequency
+process begin
+    if (freq = '0') then
+        offset <= "01111111000010111110"; -- Set to 50 Hz
+    else
+        offset <= "01111111001101001001"; -- set to 60 Hz
+    end if;
+end process;
+
 --Here is where arithmetic to select which waveform is needed 
 process(clk) begin
     if (wave_type = "00") then
