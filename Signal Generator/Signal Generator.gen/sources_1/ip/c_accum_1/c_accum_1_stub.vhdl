@@ -1,10 +1,10 @@
 -- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2022.1 (win64) Build 3526262 Mon Apr 18 15:48:16 MDT 2022
--- Date        : Tue Oct 25 21:23:08 2022
+-- Date        : Tue Oct 25 21:23:07 2022
 -- Host        : DF3 running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode synth_stub {d:/.GitHub/ECE-351-Project/Signal Generator/Signal
---               Generator.gen/sources_1/ip/c_accum_1/c_accum_1_stub.vhdl}
+-- Command     : write_vhdl -force -mode synth_stub -rename_top c_accum_1 -prefix
+--               c_accum_1_ c_accum_1_stub.vhdl
 -- Design      : c_accum_1
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7a35tcpg236-1

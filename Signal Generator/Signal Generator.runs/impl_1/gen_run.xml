@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1669687546">
+  <File Type="ROUTE-PWR" Name="Phase_accumulator_for_diego_ref_power_routed.rpt"/>
+  <File Type="PA-TCL" Name="Phase_accumulator_for_diego_ref.tcl"/>
+  <File Type="BITSTR-MMI" Name="Phase_accumulator_for_diego_ref.mmi"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="Phase_accumulator_for_diego_ref_methodology_drc_opted.rpt"/>
+  <File Type="INIT-TIMING" Name="Phase_accumulator_for_diego_ref_timing_summary_init.rpt"/>
+  <File Type="ROUTE-PWR-SUM" Name="Phase_accumulator_for_diego_ref_power_summary_routed.pb"/>
+  <File Type="REPORTS-TCL" Name="Phase_accumulator_for_diego_ref_reports.tcl"/>
+  <File Type="OPT-TIMING" Name="Phase_accumulator_for_diego_ref_timing_summary_opted.rpt"/>
+  <File Type="OPT-DCP" Name="Phase_accumulator_for_diego_ref_opt.dcp"/>
+  <File Type="OPT-DRC" Name="Phase_accumulator_for_diego_ref_drc_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="Phase_accumulator_for_diego_ref.hwdef"/>
+  <File Type="PWROPT-DCP" Name="Phase_accumulator_for_diego_ref_pwropt.dcp"/>
+  <File Type="PWROPT-DRC" Name="Phase_accumulator_for_diego_ref_drc_pwropted.rpt"/>
+  <File Type="PWROPT-TIMING" Name="Phase_accumulator_for_diego_ref_timing_summary_pwropted.rpt"/>
+  <File Type="PLACE-DCP" Name="Phase_accumulator_for_diego_ref_placed.dcp"/>
+  <File Type="PLACE-IO" Name="Phase_accumulator_for_diego_ref_io_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="Phase_accumulator_for_diego_ref_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="Phase_accumulator_for_diego_ref_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="Phase_accumulator_for_diego_ref_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="Phase_accumulator_for_diego_ref_control_sets_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="Phase_accumulator_for_diego_ref_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="Phase_accumulator_for_diego_ref_incremental_reuse_pre_placed.rpt"/>
+  <File Type="BG-BIN" Name="Phase_accumulator_for_diego_ref.bin"/>
+  <File Type="PLACE-TIMING" Name="Phase_accumulator_for_diego_ref_timing_summary_placed.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="Phase_accumulator_for_diego_ref_postplace_pwropt.dcp"/>
+  <File Type="BITSTR-MSK" Name="Phase_accumulator_for_diego_ref.msk"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="Phase_accumulator_for_diego_ref_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="Phase_accumulator_for_diego_ref_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="Phase_accumulator_for_diego_ref_drc_physopted.rpt"/>
+  <File Type="BITSTR-RBT" Name="Phase_accumulator_for_diego_ref.rbt"/>
+  <File Type="PHYSOPT-TIMING" Name="Phase_accumulator_for_diego_ref_timing_summary_physopted.rpt"/>
+  <File Type="ROUTE-ERROR-DCP" Name="Phase_accumulator_for_diego_ref_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="Phase_accumulator_for_diego_ref_routed.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="Phase_accumulator_for_diego_ref_routed_bb.dcp"/>
+  <File Type="ROUTE-DRC" Name="Phase_accumulator_for_diego_ref_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="Phase_accumulator_for_diego_ref_drc_routed.pb"/>
+  <File Type="ROUTE-DRC-RPX" Name="Phase_accumulator_for_diego_ref_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="Phase_accumulator_for_diego_ref_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="Phase_accumulator_for_diego_ref_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="Phase_accumulator_for_diego_ref_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="Phase_accumulator_for_diego_ref_power_routed.rpx"/>
+  <File Type="ROUTE-STATUS" Name="Phase_accumulator_for_diego_ref_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="Phase_accumulator_for_diego_ref_route_status.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="Phase_accumulator_for_diego_ref_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="Phase_accumulator_for_diego_ref_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="Phase_accumulator_for_diego_ref_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="Phase_accumulator_for_diego_ref_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="Phase_accumulator_for_diego_ref_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW" Name="Phase_accumulator_for_diego_ref_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="Phase_accumulator_for_diego_ref_bus_skew_routed.pb"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="Phase_accumulator_for_diego_ref_bus_skew_routed.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="Phase_accumulator_for_diego_ref_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="Phase_accumulator_for_diego_ref_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="Phase_accumulator_for_diego_ref_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="Phase_accumulator_for_diego_ref_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="Phase_accumulator_for_diego_ref_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="Phase_accumulator_for_diego_ref_bus_skew_postroute_physopted.rpt"/>
+  <File Type="BG-BIT" Name="Phase_accumulator_for_diego_ref.bit"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="Phase_accumulator_for_diego_ref_bus_skew_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="Phase_accumulator_for_diego_ref_bus_skew_postroute_physopted.rpx"/>
+  <File Type="BITSTR-NKY" Name="Phase_accumulator_for_diego_ref.nky"/>
+  <File Type="BITSTR-BMM" Name="Phase_accumulator_for_diego_ref_bd.bmm"/>
+  <File Type="PDI-FILE" Name="Phase_accumulator_for_diego_ref.pdi"/>
+  <File Type="RCFI_FILE" Name="Phase_accumulator_for_diego_ref.rcfi"/>
+  <File Type="CFI_FILE" Name="Phase_accumulator_for_diego_ref.cfi"/>
+  <File Type="RNPI_FILE" Name="Phase_accumulator_for_diego_ref.rnpi"/>
+  <File Type="NPI_FILE" Name="Phase_accumulator_for_diego_ref.npi"/>
+  <File Type="RBD_FILE" Name="Phase_accumulator_for_diego_ref.rbd"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="Phase_accumulator_for_diego_ref.ltx"/>
+  <File Type="BITSTR-SYSDEF" Name="Phase_accumulator_for_diego_ref.sysdef"/>
+  <File Type="BG-BGN" Name="Phase_accumulator_for_diego_ref.bgn"/>
+  <File Type="BG-DRC" Name="Phase_accumulator_for_diego_ref.drc"/>
+  <File Type="RDI-RDI" Name="Phase_accumulator_for_diego_ref.vdi"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <File Type="ROUTE-RQS" Name="Phase_accumulator_for_diego_ref_routed.rqs"/>
+  <File Type="POSTROUTE-PHYSOPT-RQS" Name="Phase_accumulator_for_diego_ref_postroute_physopted.rqs"/>
+  <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-RQS-RPT" Name="postroute_physopt_report_qor_suggestions_0.rpt"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/ip/c_accum_1/c_accum_1.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/phase_for_Diego.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/testDDS.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/Phase Accumulator.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/phase_accumulator_2.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/main.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/waveforms.coe">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="Phase_accumulator_for_diego_ref"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2021"/>
+    <Step Id="init_design"/>
+    <Step Id="opt_design"/>
+    <Step Id="power_opt_design"/>
+    <Step Id="place_design"/>
+    <Step Id="post_place_power_opt_design"/>
+    <Step Id="phys_opt_design"/>
+    <Step Id="route_design"/>
+    <Step Id="post_route_phys_opt_design"/>
+    <Step Id="write_bitstream"/>
+  </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="c_accum_0"/>
+</GenRun>

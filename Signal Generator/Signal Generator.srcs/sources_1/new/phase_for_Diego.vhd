@@ -63,7 +63,7 @@ architecture Behavioral of Phase_accumulator_for_diego_ref is
     signal sigBypass : std_logic := '0';
 begin
     
-    clock_div : c_accum_0 port map(B => sigOffset, CLK => clk, BYPASS => sigBypass,Q => large_accum_out, sinit => init);
+    clock_div : c_accum_0 port map(B => sigOffset, CLK => clk, BYPASS => sigBypass, Q => large_accum_out, sinit => init);
     large_out <= large_accum_out ;
     LUT_input : c_accum_1  port map(B => "1", CLK => large_accum_out(19), BYPASS => '0', Q => LUT_address);
     
