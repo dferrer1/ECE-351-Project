@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2022.1 (win64) Build 3526262 Mon Apr 18 15:48:16 MDT 2022
-| Date             : Mon Nov 28 21:06:40 2022
+| Date             : Tue Nov 29 21:12:37 2022
 | Host             : DF3 running 64-bit major release  (build 9200)
 | Command          : report_power -file Phase_accumulator_for_diego_ref_power_routed.rpt -pb Phase_accumulator_for_diego_ref_power_summary_routed.pb -rpx Phase_accumulator_for_diego_ref_power_routed.rpx
 | Design           : Phase_accumulator_for_diego_ref
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+----------------------------------+
-| Total On-Chip Power (W)  | 23.957 (Junction temp exceeded!) |
+| Total On-Chip Power (W)  | 23.980 (Junction temp exceeded!) |
 | Design Power Budget (W)  | Unspecified*                     |
 | Power Budget Margin (W)  | NA                               |
-| Dynamic (W)              | 23.472                           |
+| Dynamic (W)              | 23.495                           |
 | Device Static (W)        | 0.485                            |
 | Effective TJA (C/W)      | 5.0                              |
 | Max Ambient (C)          | 0.0                              |
@@ -52,16 +52,16 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |     0.283 |       98 |       --- |             --- |
-|   LUT as Logic |     0.194 |       23 |     20800 |            0.11 |
+| Slice Logic    |     0.291 |       99 |       --- |             --- |
+|   LUT as Logic |     0.203 |       23 |     20800 |            0.11 |
 |   CARRY4       |     0.043 |        8 |      8150 |            0.10 |
-|   Register     |     0.039 |       50 |     41600 |            0.12 |
+|   Register     |     0.039 |       51 |     41600 |            0.12 |
 |   BUFG         |     0.006 |        1 |        32 |            3.13 |
 |   Others       |     0.000 |       15 |       --- |             --- |
-| Signals        |     0.684 |       80 |       --- |             --- |
-| I/O            |    22.505 |       51 |       106 |           48.11 |
+| Signals        |     0.699 |       80 |       --- |             --- |
+| I/O            |    22.505 |       50 |       106 |           47.17 |
 | Static Power   |     0.485 |          |           |                 |
-| Total          |    23.957 |          |           |                 |
+| Total          |    23.980 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,7 +71,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     1.392 |       1.051 |      0.341 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     1.415 |       1.074 |      0.341 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     1.889 |       1.835 |      0.053 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -138,13 +138,13 @@ Table of Contents
 +---------------------------------+-----------+
 | Name                            | Power (W) |
 +---------------------------------+-----------+
-| Phase_accumulator_for_diego_ref |    23.472 |
-|   LUT_input                     |     0.109 |
-|     U0                          |     0.109 |
-|       i_synth                   |     0.109 |
-|   clock_div                     |     0.597 |
-|     U0                          |     0.597 |
-|       i_synth                   |     0.597 |
+| Phase_accumulator_for_diego_ref |    23.495 |
+|   LUT_input                     |     0.107 |
+|     U0                          |     0.107 |
+|       i_synth                   |     0.107 |
+|   clock_div                     |     0.596 |
+|     U0                          |     0.596 |
+|       i_synth                   |     0.596 |
 +---------------------------------+-----------+
 
 

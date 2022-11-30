@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.1 (win64) Build 3526262 Mon Apr 18 15:48:16 MDT 2022
-| Date         : Mon Nov 28 21:06:19 2022
+| Date         : Tue Nov 29 21:12:16 2022
 | Host         : DF3 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file Phase_accumulator_for_diego_ref_control_sets_placed.rpt
 | Design       : Phase_accumulator_for_diego_ref
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |     4 |
-|    Minimum number of control sets                        |     4 |
+| Total control sets                                       |     5 |
+|    Minimum number of control sets                        |     5 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    22 |
+| Unused register locations in slices containing registers |    29 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,8 +39,8 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |     4 |
-| >= 0 to < 4        |     1 |
+| Total control sets |     5 |
+| >= 0 to < 4        |     2 |
 | >= 4 to < 6        |     0 |
 | >= 6 to < 8        |     0 |
 | >= 8 to < 10       |     1 |
@@ -58,9 +58,9 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              11 |            4 |
+| No           | No                    | No                     |              12 |            5 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              39 |            9 |
+| No           | Yes                   | No                     |              39 |           11 |
 | Yes          | No                    | No                     |               0 |            0 |
 | Yes          | No                    | Yes                    |               0 |            0 |
 | Yes          | Yes                   | No                     |               0 |            0 |
@@ -73,10 +73,11 @@ Table of Contents
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+-----------------------+------------------+----------------+--------------+
 |                                                                             Clock Signal                                                                             | Enable Signal |    Set/Reset Signal   | Slice Load Count | Bel Load Count | Bels / Slice |
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+-----------------------+------------------+----------------+--------------+
+| ~clk_IBUF_BUFG                                                                                                                                                       |               |                       |                1 |              1 |         1.00 |
 |  clk_IBUF_BUFG                                                                                                                                                       |               |                       |                1 |              2 |         2.00 |
 |  clock_div/U0/i_synth/i_baseblox.i_baseblox_accum/i_gen_accum_fabric.i_accum_fabric/the_addsub/no_pipelining.the_addsub/i_lut6.i_lut6_addsub/i_q.i_simple.qreg/Q[19] |               |                       |                3 |              9 |         3.00 |
-|  clk_IBUF_BUFG                                                                                                                                                       |               | sigOffset[19]_i_1_n_0 |                4 |             19 |         4.75 |
-|  clk_IBUF_BUFG                                                                                                                                                       |               | init_IBUF             |                5 |             20 |         4.00 |
+|  clk_IBUF_BUFG                                                                                                                                                       |               | sigOffset[19]_i_1_n_0 |                6 |             19 |         3.17 |
+|  clk_IBUF_BUFG                                                                                                                                                       |               | SINIT                 |                5 |             20 |         4.00 |
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+-----------------------+------------------+----------------+--------------+
 
 

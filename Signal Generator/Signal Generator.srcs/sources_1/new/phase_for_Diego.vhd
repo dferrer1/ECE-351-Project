@@ -34,7 +34,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity Phase_accumulator_for_diego_ref is
     Port (
         clk : in std_logic;
-        init : in std_logic;
+        --init : in std_logic;
         offset : in std_logic_vector (19 downto 0); -- used to determine the frequency
         LUT_address: out std_logic_vector (8 downto 0);
         large_out : out std_logic_vector (19 downto 0)
@@ -61,9 +61,10 @@ architecture Behavioral of Phase_accumulator_for_diego_ref is
     signal small_accum_clock : std_logic;
     signal sigOffset : std_logic_vector (19 downto 0);
     signal sigBypass : std_logic := '0';
+    signal cinit: std_logic := '1';
 begin
     
-    clock_div : c_accum_0 port map(B => sigOffset, CLK => clk, BYPASS => sigBypass, Q => large_accum_out, sinit => init);
+    clock_div : c_accum_0 port map(B => sigOffset, CLK => clk, BYPASS => sigBypass, Q => large_accum_out, sinit => cinit);
     large_out <= large_accum_out ;
     LUT_input : c_accum_1  port map(B => "1", CLK => large_accum_out(19), BYPASS => '0', Q => LUT_address);
     
@@ -74,13 +75,20 @@ begin
             if (sigBypass = '1') then
                 sigBypass <= '0';
             end if;
-            if (init = '1' or large_accum_out(19) = '1') then
+            if (cinit = '1' or large_accum_out(19) = '1') then
                 sigOffset <= offset;
                 sigBypass <= '1';
             else
                 sigOffset <= (0=>'1',others=>'0');
             end if;
-            
+        end if;
+        if falling_edge(clk) then
+            if (cinit = '1') then
+                cinit <= '0';
+            end if;
+            --if (sigBypass = '1') then
+            --    sigBypass <= '0';
+            --end if;
         end if;
     end process;
 

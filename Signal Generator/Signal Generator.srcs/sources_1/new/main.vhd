@@ -38,7 +38,7 @@ entity main is
            --frequency_down : in std_logic;
            freq: in std_logic;
            clk : in std_logic ;
-           init : in std_logic ;
+           --init : in std_logic ;
            phase_offset : in std_logic_vector (1 downto 0);
            LUT_in_addr : out std_logic_vector (10 downto 0);
            LUT_out_test : out std_logic_vector (11 downto 0);
@@ -50,7 +50,7 @@ end main;
 architecture Behavioral of main is
 component Phase_accumulator_for_diego_ref is port(
         clk : in std_logic;
-        init : in std_logic;
+        --init : in std_logic;
         offset : in std_logic_vector (19 downto 0); -- used to determine the frequency
         LUT_address: out std_logic_vector (8 downto 0);
         large_out : out std_logic_vector (19 downto 0)
@@ -73,7 +73,7 @@ signal offset_LUT : integer := 0;
 signal numerator : std_logic_vector (3 downto 0);
 signal mag_placeholder : std_logic_vector (39 downto 0) := X"0000000000";
 begin
-phase_accum : Phase_accumulator_for_diego_ref port map(clk => clk, init => init,offset => offset, LUT_address => LUT_address , large_out => test_large_out);
+phase_accum : Phase_accumulator_for_diego_ref port map(clk => clk, offset => offset, LUT_address => LUT_address , large_out => test_large_out);
 -- select wave frequency
 process(freq) begin
     if (freq = '0') then
