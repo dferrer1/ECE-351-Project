@@ -3,41 +3,52 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="main_sim_behav.wdb" id="1">
+      <db_ref path="phase_test_behav.wdb" id="1">
          <top_modules>
-            <top_module name="glbl" />
-            <top_module name="main_sim" />
+            <top_module name="phase_test" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="117.507 ns"></ZoomEndTime>
-      <Cursor1Time time="0.000 ns"></Cursor1Time>
+      <ZoomEndTime time="32.751 ns"></ZoomEndTime>
+      <Cursor1Time time="87.490 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="266"></NameColumnWidth>
-      <ValueColumnWidth column_width="126"></ValueColumnWidth>
+      <ValueColumnWidth column_width="110"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="5" />
-   <wvobject fp_name="/main_sim/DAC_out" type="array">
-      <obj_property name="ElementShortName">DAC_out[11:0]</obj_property>
-      <obj_property name="ObjectShortName">DAC_out[11:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/main_sim/test_large_out" type="array">
-      <obj_property name="ElementShortName">test_large_out[19:0]</obj_property>
-      <obj_property name="ObjectShortName">test_large_out[19:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/main_sim/clk" type="logic">
+   <WVObjectSize size="8" />
+   <wvobject fp_name="/phase_test/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/main_sim/LUT_in_addr" type="array">
-      <obj_property name="ElementShortName">LUT_in_addr[10:0]</obj_property>
-      <obj_property name="ObjectShortName">LUT_in_addr[10:0]</obj_property>
+   <wvobject fp_name="/phase_test/uut/sigBypass" type="logic">
+      <obj_property name="ElementShortName">sigBypass</obj_property>
+      <obj_property name="ObjectShortName">sigBypass</obj_property>
    </wvobject>
-   <wvobject fp_name="/main_sim/LUT_out_test" type="array">
-      <obj_property name="ElementShortName">LUT_out_test[11:0]</obj_property>
-      <obj_property name="ObjectShortName">LUT_out_test[11:0]</obj_property>
+   <wvobject fp_name="/phase_test/init" type="logic">
+      <obj_property name="ElementShortName">init</obj_property>
+      <obj_property name="ObjectShortName">init</obj_property>
+   </wvobject>
+   <wvobject fp_name="/phase_test/uut/cinit" type="logic">
+      <obj_property name="ElementShortName">cinit</obj_property>
+      <obj_property name="ObjectShortName">cinit</obj_property>
+   </wvobject>
+   <wvobject fp_name="/phase_test/Q" type="array">
+      <obj_property name="ElementShortName">Q[8:0]</obj_property>
+      <obj_property name="ObjectShortName">Q[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/phase_test/large_out" type="array">
+      <obj_property name="ElementShortName">large_out[19:0]</obj_property>
+      <obj_property name="ObjectShortName">large_out[19:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/phase_test/test_offset" type="array">
+      <obj_property name="ElementShortName">test_offset[18:0]</obj_property>
+      <obj_property name="ObjectShortName">test_offset[18:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/phase_test/half_period" type="other">
+      <obj_property name="ElementShortName">half_period</obj_property>
+      <obj_property name="ObjectShortName">half_period</obj_property>
    </wvobject>
 </wave_config>
